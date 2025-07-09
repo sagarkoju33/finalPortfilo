@@ -12,7 +12,7 @@ class NavigationButtonList extends StatefulWidget {
 class _NavigationButtonListState extends State<NavigationButtonList> {
   List<String> navigationButtons = [
     "Home",
-    "About Us",
+    // "About Us",
     "Experience",
     "Projects",
     "Education",

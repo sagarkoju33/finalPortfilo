@@ -34,7 +34,7 @@ class About extends StatelessWidget {
                   fontWeight: FontWeight.w900,
                   height: 0,
                   wordSpacing: 2,
-                  fontSize: Responsive.isDesktop(context) ? 16 : 12,
+                  fontSize: Responsive.isDesktop(context) ? 10 : 12,
                 ),
                 textAlign: TextAlign.center,
               ),

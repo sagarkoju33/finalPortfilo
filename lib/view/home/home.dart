@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
     return MainView(
       pages: [
         const Introduction(),
-        const AboutUs(),
+        // const AboutUs(),
         Experience(),
         ProjectsView(),
         Education(),
