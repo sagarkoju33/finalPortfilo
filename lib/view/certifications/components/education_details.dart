@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:portfolio/model/education_model.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../model/certificate_model.dart';
 import '../../../res/constants.dart';
 import '../../../view model/getx_controllers/certification_controller.dart';
 
@@ -18,7 +15,11 @@ class CertificateStack extends StatelessWidget {
       onHover: (value) {
         controller.onHover(index, value);
       },
-      onTap: () {},
+      onTap: () {
+        educationList[index].link.isNotEmpty
+            ? launchUrl(Uri.parse(educationList[index].link))
+            : null;
+      },
       borderRadius: BorderRadius.circular(30),
       child: AnimatedContainer(
         padding: const EdgeInsets.all(defaultPadding),
@@ -38,26 +39,23 @@ class CertificateStack extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                  fontSize: 14,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: defaultPadding),
-              Wrap(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${educationList[index].institution} - ${educationList[index].duration}",
-                    style: const TextStyle(color: Colors.amber),
-                  ),
-                ],
+              Text(
+                educationList[index].institution,
+                style: const TextStyle(color: Colors.amber, fontSize: 12),
               ),
+
               const SizedBox(height: defaultPadding / 2),
               Text.rich(
-                maxLines: 1,
+                maxLines: 2,
                 TextSpan(
                   text: 'Description : ',
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white, fontSize: 12),
                   children: [
                     TextSpan(
                       text: educationList[index].description,
@@ -67,6 +65,13 @@ class CertificateStack extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  " ${educationList[index].duration}",
+                  style: const TextStyle(color: Colors.amber, fontSize: 12),
                 ),
               ),
               const SizedBox(height: defaultPadding),

@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/view%20model/responsive.dart';
 import 'package:portfolio/view/intro/components/side_menu_button.dart';
 import 'package:portfolio/view/main/components/connect_button.dart';
-
 import '../../../res/constants.dart';
 import 'navigation_button_list.dart';
 

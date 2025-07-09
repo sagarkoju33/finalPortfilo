@@ -13,7 +13,7 @@ class ExperienceDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      padding: const EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       // height: double.infinity,
       // width: double.infinity,
       decoration: BoxDecoration(
@@ -25,33 +25,37 @@ class ExperienceDetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              experienceList[index].title,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                experienceList[index].title,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(height: defaultPadding),
-            Wrap(
-              // alignment: WrapAlignment.end,
-              runAlignment: WrapAlignment.end,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            const SizedBox(height: 12),
+            Row(
               children: [
                 Text(
                   experienceList[index].company,
-                  style: const TextStyle(color: Colors.amber),
+                  style: const TextStyle(color: Colors.amber, fontSize: 12),
                 ),
-                const SizedBox(width: 10),
-                Text(
-                  experienceList[index].duration,
-                  style: const TextStyle(color: Colors.grey, fontSize: 12),
-                  textAlign: TextAlign.end,
+                SizedBox(width: 30),
+                Expanded(
+                  child: Text(
+                    experienceList[index].duration,
+                    style: const TextStyle(color: Colors.grey, fontSize: 10),
+                  ),
                 ),
               ],
             ),
+
             const SizedBox(height: defaultPadding / 2),
             ListView.builder(
               itemCount: experienceList[index].responsibilities.length,
@@ -63,16 +67,22 @@ class ExperienceDetails extends StatelessWidget {
                     .responsibilities[responsibilitiesIndex];
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(
                       CupertinoIcons.check_mark_circled_solid,
                       color: Colors.green,
+                      size: 16,
                     ),
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
                       child: Text(
                         e,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          // overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ),
                   ],

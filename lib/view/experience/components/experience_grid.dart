@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:portfolio/model/experience_model.dart';
 import 'package:portfolio/view/experience/components/experience_controller.dart';

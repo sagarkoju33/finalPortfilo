@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/view/main/components/drawer/contact_icons.dart'
-    show ContactIcon;
 import 'package:portfolio/view/main/components/drawer/personal_info.dart';
-
 import '../../../../res/constants.dart';
 import 'knowledges.dart';
 import 'about.dart';

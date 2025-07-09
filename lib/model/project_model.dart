@@ -51,14 +51,26 @@ List<Project> projectList = [
   ),
   Project(
     'Xpress Sewa',
-    'Xpress Sewa is a multi-service platform that provides access to a wide range of utility services including bill payments, government services, and mobile recharge. Focuses on quick access and user satisfaction.',
+    'Transfer Money At Your Fingertips Send & Receive money tin seconds with great rates and cheaper transaction fee. Trusted by millions of people.Xpress Sewa aim to make money transfer process effortless and super fast. We maintain complete transparency to give you better control over the transactions and our thorough verification processes make sure the money is safe and reaches the right recipients.',
     'assets/images/xpress.png',
     'https://play.google.com/store/apps/details?id=transfer.money.com.xpress_sewa',
   ),
   Project(
     'Asan Remit',
-    'A trusted remittance company offering fast and secure international money transfers.',
+    'Transfer Money At Your Fingertips Send & Receive money tin seconds with great rates and cheaper transaction fee. Trusted by millions of people.Asan Remit aim to make money transfer process effortless and super fast. We maintain complete transparency to give you better control over the transactions and our thorough verification processes make sure the money is safe and reaches the right recipients.',
     'assets/images/mypay_gold.png',
     'https://play.google.com/store/apps/details?id=transfer.money.com.asanremit',
+  ),
+  Project(
+    'Insta Remit',
+    'At Insta Remit, we redefine money transfers, prioritizing your control and satisfaction. Our platform ensures swift approvals, real-time tracking and secure transactions. Enjoy waived fees for higher amounts, benefit from top exchange rates and experience effortless',
+    'assets/images/mypay_gold.png',
+    'https://play.google.com/store/apps/details?id=transfer.money.com.instaremit',
+  ),
+  Project(
+    'Taka Pay',
+    'TakaPay aim to make money transfer process effortless and super fast. We maintain complete transparency to give you better control over the transactions and our thorough verification processes make sure the money is safe and reaches the right recipients.',
+    'assets/images/mypay_gold.png',
+    'https://play.google.com/store/apps/details?id=com.xpress.takapay',
   ),
 ];

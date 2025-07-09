@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:portfolio/res/constants.dart';
 import 'package:portfolio/view%20model/responsive.dart';
 import 'package:portfolio/view/projects/components/title_text.dart';
