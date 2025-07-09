@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../res/constants.dart';
 
 class AnimatedLinearProgressIndicator extends StatelessWidget {
-  const AnimatedLinearProgressIndicator(
-      {super.key, required this.percentage, required this.title, this.image});
+  const AnimatedLinearProgressIndicator({
+    super.key,
+    required this.percentage,
+    required this.title,
+    this.image,
+  });
   final double percentage;
   final String title;
   final String? image;
@@ -20,26 +24,14 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Image.asset(
-                    image!,
-                    height: 15,
-                    width: 15,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    title,
-                    style: const TextStyle(color: Colors.white),
-                  ),
+                  Image.asset(image!, height: 15, width: 15, fit: BoxFit.cover),
+                  const SizedBox(width: 5),
+                  Text(title, style: const TextStyle(color: Colors.white)),
                   const Spacer(),
                   Text('${(value * 100).toInt().toString()}%'),
                 ],
               ),
-              const SizedBox(
-                height: defaultPadding / 2,
-              ),
+              const SizedBox(height: defaultPadding / 2),
               LinearProgressIndicator(
                 value: value,
                 backgroundColor: Colors.black,
@@ -67,25 +59,50 @@ class MySKills extends StatelessWidget {
           image: 'assets/icons/flutter.png',
         ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.9, title: 'Dart', image: 'assets/icons/dart.png'),
+          percentage: 0.9,
+          title: 'Dart',
+          image: 'assets/icons/dart.png',
+        ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.6,
-            title: 'Firebase',
-            image: 'assets/icons/firebase.png'),
+          percentage: 0.6,
+          title: 'Firebase',
+          image: 'assets/icons/firebase.png',
+        ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.85, title: 'Sqlite', image: 'assets/icons/dart.png'),
+          percentage: 0.85,
+          title: 'Sqlite',
+          image: 'assets/icons/dart.png',
+        ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.8,
-            title: 'Responsive Design',
-            image: 'assets/icons/flutter.png'),
+          percentage: 0.8,
+          title: 'Responsive Design',
+          image: 'assets/icons/flutter.png',
+        ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.9,
-            title: 'Clean Architecture',
-            image: 'assets/icons/flutter.png'),
+          percentage: 0.9,
+          title: 'Clean Architecture',
+          image: 'assets/icons/flutter.png',
+        ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.5, title: 'Bloc', image: 'assets/icons/bloc.png'),
+          percentage: 0.5,
+          title: 'Bloc',
+          image: 'assets/icons/bloc.png',
+        ),
         AnimatedLinearProgressIndicator(
-            percentage: 0.93, title: 'Getx', image: 'assets/icons/dart.png'),
+          percentage: 0.7,
+          title: 'Provider',
+          image: 'assets/icons/flutter.png',
+        ),
+        AnimatedLinearProgressIndicator(
+          percentage: 0.4,
+          title: 'Riverpod',
+          image: 'assets/icons/flutter.png',
+        ),
+        AnimatedLinearProgressIndicator(
+          percentage: 0.93,
+          title: 'Getx',
+          image: 'assets/icons/dart.png',
+        ),
       ],
     );
   }
