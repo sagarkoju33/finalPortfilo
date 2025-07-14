@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
 
-import '../../../view model/responsive.dart';
-
-class AnimatedDescriptionText extends StatelessWidget {
-  const AnimatedDescriptionText(
-      {super.key, required this.start, required this.end});
+class AnimatedDescriptionText extends GetWidget<PortfolioController> {
+  const AnimatedDescriptionText({
+    super.key,
+    required this.start,
+    required this.end,
+  });
   final double start;
   final double end;
   @override
@@ -13,11 +16,21 @@ class AnimatedDescriptionText extends StatelessWidget {
       tween: Tween(begin: start, end: end),
       duration: const Duration(milliseconds: 200),
       builder: (context, value, child) {
-        return Text(
-          'I\'m capable of creating excellent mobile apps, handling${Responsive.isLargeMobile(context) ? '\n' : ''}every step from ${!Responsive.isLargeMobile(context) ? '\n' : ''}concept to deployment.',
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(color: Colors.grey, wordSpacing: 2, fontSize: value),
+        return Obx(
+          () => Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Text(
+              controller.portfolioData.value?.intro?.description ?? "",
+              // textAlign: TextAlign.justify,
+              // maxLines: 1,
+              // overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: Colors.grey,
+                wordSpacing: 2,
+                fontSize: value,
+              ),
+            ),
+          ),
         );
       },
     );

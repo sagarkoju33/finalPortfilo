@@ -9,8 +9,9 @@ class CombineSubtitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Wrap(
+      runSpacing: 10,
+      // mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Responsive(
           desktop: AnimatedSubtitleText(start: 30, end: 40, text: 'Flutter '),

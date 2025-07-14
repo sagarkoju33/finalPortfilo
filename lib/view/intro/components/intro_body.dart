@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import '../../../res/constants.dart';
@@ -13,52 +15,79 @@ class IntroBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
+
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (!Responsive.isDesktop(context))
+      child: Responsive.isDesktop(context)
+          ? Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MyPortfolioText(start: 40, end: 50),
+                      SizedBox(height: defaultPadding / 2),
+                      CombineSubtitleText(),
+                      SizedBox(height: defaultPadding / 2),
+                      const Responsive(
+                        desktop: AnimatedDescriptionText(start: 12, end: 12),
+                        largeMobile: AnimatedDescriptionText(
+                          start: 12,
+                          end: 12,
+                        ),
+                        mobile: AnimatedDescriptionText(start: 12, end: 12),
+                        tablet: AnimatedDescriptionText(start: 17, end: 14),
+                      ),
+                      SizedBox(height: defaultPadding * 2),
+                      DownloadButton(),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+
+                Responsive.isDesktop(context)
+                    ? const AnimatedImageContainer()
+                    : const SizedBox(),
+                const Spacer(),
+              ],
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 SizedBox(height: size.height * 0.06),
-              if (!Responsive.isDesktop(context))
                 Row(
-                  children: [
-                    SizedBox(width: size.width * 0.23),
-                    const AnimatedImageContainer(width: 150, height: 200),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    AnimatedImageContainer(width: 150, height: 200),
                   ],
                 ),
-              if (!Responsive.isDesktop(context))
                 SizedBox(height: size.height * 0.1),
-              const Responsive(
-                desktop: MyPortfolioText(start: 40, end: 50),
-                largeMobile: MyPortfolioText(start: 40, end: 35),
-                mobile: MyPortfolioText(start: 35, end: 30),
-                tablet: MyPortfolioText(start: 50, end: 40),
-              ),
-              if (kIsWeb && Responsive.isLargeMobile(context))
-                Container(height: defaultPadding, color: Colors.transparent),
-              const CombineSubtitleText(),
-              const SizedBox(height: defaultPadding / 2),
-              const Responsive(
-                desktop: AnimatedDescriptionText(start: 14, end: 15),
-                largeMobile: AnimatedDescriptionText(start: 14, end: 12),
-                mobile: AnimatedDescriptionText(start: 12, end: 12),
-                tablet: AnimatedDescriptionText(start: 17, end: 14),
-              ),
-              const SizedBox(height: defaultPadding * 2),
-              const DownloadButton(),
-            ],
-          ),
-          const Spacer(),
-          Responsive.isDesktop(context)
-              ? const AnimatedImageContainer()
-              : const SizedBox(),
-          const Spacer(),
-        ],
-      ),
+                const Responsive(
+                  desktop: MyPortfolioText(start: 40, end: 50),
+                  largeMobile: MyPortfolioText(start: 40, end: 35),
+                  mobile: MyPortfolioText(start: 35, end: 30),
+                  tablet: MyPortfolioText(start: 50, end: 40),
+                ),
+                if (kIsWeb && Responsive.isLargeMobile(context))
+                  Container(height: defaultPadding),
+                const CombineSubtitleText(),
+                const SizedBox(height: defaultPadding / 2),
+                const Responsive(
+                  desktop: AnimatedDescriptionText(start: 14, end: 15),
+                  largeMobile: AnimatedDescriptionText(start: 14, end: 12),
+                  mobile: AnimatedDescriptionText(start: 12, end: 12),
+                  tablet: AnimatedDescriptionText(start: 17, end: 14),
+                ),
+                const SizedBox(height: defaultPadding * 2),
+                SizedBox(
+                  width: size.width * 0.5,
+                  child: const DownloadButton(),
+                ),
+              ],
+            ),
     );
   }
 }

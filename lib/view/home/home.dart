@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:portfolio/view/intro/introduction.dart';
-import 'package:portfolio/view/main/about_us.dart';
 import 'package:portfolio/view/main/main_view.dart';
 import 'package:portfolio/view/projects/project_view.dart';
 

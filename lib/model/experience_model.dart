@@ -18,10 +18,8 @@ List<Experience> experienceList = [
   Experience(
     title: 'Mid Level Flutter Developer',
     company: 'MyPay Smart Card Pvt. Ltd.\nKathmandu, Nepal',
-    //duration: 'Apr 2024 – Sep 2024',
     duration: 'Apr 2023\n-Ongoing',
     image: 'assets/images/mernInternship.jpeg',
-
     responsibilities: [
       'Led the development of production-level Flutter applications with robust architecture.',
       'Integrated RESTful APIs and third-party services such as payment gateways and Firebase.',
@@ -36,7 +34,6 @@ List<Experience> experienceList = [
   Experience(
     title: 'Associate Flutter Developer',
     company: 'Worldlink Technologies Pvt. Ltd.\nKathmandu, Nepal',
-    // duration: '🗓️ Jul 2019 - Dec 2021',
     duration: 'Aug2022 - Feb2023',
     image: 'assets/images/siddhababa.png',
     responsibilities: [

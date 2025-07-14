@@ -9,7 +9,7 @@ import 'education_details.dart';
 class CertificateGrid extends StatelessWidget {
   final int crossAxisCount;
   final double ratio;
-  CertificateGrid({super.key, this.crossAxisCount = 3, this.ratio = 1.3});
+  CertificateGrid({super.key, this.crossAxisCount = 3, this.ratio = 2});
   final controller = Get.put(EducationController());
   @override
   Widget build(BuildContext context) {
