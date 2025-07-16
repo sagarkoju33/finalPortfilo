@@ -4,24 +4,27 @@ import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dar
 import 'package:portfolio/view/projects/components/project_info.dart';
 import '../../../res/constants.dart';
 
-class ProjectGrid extends GetWidget<PortfolioController> {
-  int crossAxisCount;
-  double ratio;
-  ProjectGrid({super.key, this.crossAxisCount = 3, this.ratio = 2});
+class ProjectGrid extends StatelessWidget {
+  final int crossAxisCount;
+  final double ratio;
+
+  const ProjectGrid({super.key, this.crossAxisCount = 3, this.ratio = 2});
 
   @override
   Widget build(BuildContext context) {
+    final PortfolioController controller = Get.find();
+
     return Obx(() {
-      controller.crossAxisCount.value = crossAxisCount;
-      controller.childRatio.value = ratio;
-      return (controller.portfolioData.value?.projects?.isNotEmpty ?? false)
+      final projects = controller.portfolioData.value?.projects ?? [];
+
+      return projects.isNotEmpty
           ? GridView.builder(
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              itemCount: controller.portfolioData.value?.projects?.length ?? 0,
+              itemCount: projects.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: controller.crossAxisCount.value,
-                childAspectRatio: controller.childRatio.value,
+                crossAxisCount: crossAxisCount,
+                childAspectRatio: ratio,
               ),
               itemBuilder: (context, index) {
                 return Obx(
@@ -54,7 +57,7 @@ class ProjectGrid extends GetWidget<PortfolioController> {
                 );
               },
             )
-          : Center(child: const CircularProgressIndicator());
+          : const Center(child: CircularProgressIndicator());
     });
   }
 }

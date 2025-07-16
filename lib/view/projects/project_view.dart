@@ -23,12 +23,12 @@ class ProjectsView extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           Expanded(
             child: Responsive(
-              desktop: ProjectGrid(crossAxisCount: 5, ratio: 2),
+              desktop: ProjectGrid(crossAxisCount: 2, ratio: 2.4),
               extraLargeScreen: ProjectGrid(
                 crossAxisCount: (size.width > 1600 && size.width < 1650
                     ? 3
                     : 4),
-                ratio: (size.width > 1600 && size.width < 1650 ? 1.8 : 2),
+                ratio: (size.width > 1600 && size.width < 1650 ? 1.8 : 1.6),
               ),
               largeMobile: ProjectGrid(crossAxisCount: 1, ratio: 2),
               mobile: ProjectGrid(crossAxisCount: 1, ratio: 1.5),
