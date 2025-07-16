@@ -9,9 +9,10 @@ import 'components/projects_grid.dart';
 
 class ProjectsView extends StatelessWidget {
   ProjectsView({super.key});
-  final controller = Get.put(ProjectController());
+
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,9 +23,14 @@ class ProjectsView extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           Expanded(
             child: Responsive(
-              desktop: ProjectGrid(crossAxisCount: 3),
-              extraLargeScreen: ProjectGrid(crossAxisCount: 4),
-              largeMobile: ProjectGrid(crossAxisCount: 1, ratio: 1.8),
+              desktop: ProjectGrid(crossAxisCount: 5, ratio: 2),
+              extraLargeScreen: ProjectGrid(
+                crossAxisCount: (size.width > 1600 && size.width < 1650
+                    ? 3
+                    : 4),
+                ratio: (size.width > 1600 && size.width < 1650 ? 1.8 : 2),
+              ),
+              largeMobile: ProjectGrid(crossAxisCount: 1, ratio: 2),
               mobile: ProjectGrid(crossAxisCount: 1, ratio: 1.5),
               tablet: ProjectGrid(ratio: 1.4, crossAxisCount: 2),
             ),

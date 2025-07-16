@@ -8,7 +8,8 @@ class PortfolioController extends GetxController {
   var portfolioData =
       Rxn<PortfolioModel>(); // Use Rxn<T> for nullable reactive variables
   var isLoading = false.obs;
-
+  var crossAxisCount = 3.obs; // Default ratio for child widgets
+  var childRatio = 2.0.obs; // Default ratio for child widgets
   final _apiService = ApiService();
 
   @override

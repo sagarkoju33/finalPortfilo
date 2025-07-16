@@ -5,20 +5,23 @@ import 'package:portfolio/view/projects/components/project_info.dart';
 import '../../../res/constants.dart';
 
 class ProjectGrid extends GetWidget<PortfolioController> {
-  final int crossAxisCount;
-  final double ratio;
-  const ProjectGrid({super.key, this.crossAxisCount = 3, this.ratio = 2});
+  int crossAxisCount;
+  double ratio;
+  ProjectGrid({super.key, this.crossAxisCount = 3, this.ratio = 2});
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => (controller.portfolioData.value?.projects?.isNotEmpty ?? false)
+    return Obx(() {
+      controller.crossAxisCount.value = crossAxisCount;
+      controller.childRatio.value = ratio;
+      return (controller.portfolioData.value?.projects?.isNotEmpty ?? false)
           ? GridView.builder(
+              shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 30),
               itemCount: controller.portfolioData.value?.projects?.length ?? 0,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: crossAxisCount,
-                childAspectRatio: ratio,
+                crossAxisCount: controller.crossAxisCount.value,
+                childAspectRatio: controller.childRatio.value,
               ),
               itemBuilder: (context, index) {
                 return Obx(
@@ -51,7 +54,7 @@ class ProjectGrid extends GetWidget<PortfolioController> {
                 );
               },
             )
-          : Center(child: const CircularProgressIndicator()),
-    );
+          : Center(child: const CircularProgressIndicator());
+    });
   }
 }

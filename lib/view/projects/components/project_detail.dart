@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:portfolio/view/projects/components/project_link.dart';
@@ -13,7 +15,9 @@ class ProjectDetail extends GetWidget<PortfolioController> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
+    log("rendering project detail for index: $size");
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Align(
@@ -21,7 +25,6 @@ class ProjectDetail extends GetWidget<PortfolioController> {
           child: Obx(
             () => Text(
               controller.portfolioData.value!.projects![index].title ?? "",
-
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 fontSize: 16,
                 color: Colors.white,
@@ -51,7 +54,9 @@ class ProjectDetail extends GetWidget<PortfolioController> {
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        const Spacer(),
+
+        /// 🔄 Replace Spacer with SizedBox or remove it
+        // const SizedBox(height: defaultPadding),
         ProjectLinks(index: index),
         const SizedBox(height: defaultPadding / 2),
       ],
