@@ -9,7 +9,7 @@ abstract class Routes {
   Routes._();
 
   static const unknown = "/unknown";
-  static const homeScreen = "/homeScreen";
+  static const homeScreen = "/";
   static const splashScreen = "/splashScreen";
 
   static final unknownPage = GetPage(
