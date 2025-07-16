@@ -23,8 +23,8 @@ class Education extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           Expanded(
             child: Responsive(
-              desktop: CertificateGrid(crossAxisCount: 2, ratio: 2),
-              extraLargeScreen: CertificateGrid(crossAxisCount: 4, ratio: 2),
+              desktop: CertificateGrid(crossAxisCount: 2, ratio: 2.6),
+              extraLargeScreen: CertificateGrid(crossAxisCount: 4, ratio: 1.8),
               largeMobile: CertificateGrid(crossAxisCount: 1),
               mobile: CertificateGrid(crossAxisCount: 1, ratio: 1.5),
               tablet: CertificateGrid(crossAxisCount: 1, ratio: 2),

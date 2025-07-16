@@ -20,7 +20,7 @@ class TopNavigationBar extends StatelessWidget {
                 ? Image.asset('assets/images/triange_icon.png')
                 : MenuButton(onTap: () => Scaffold.of(context).openDrawer()),
           ),
-          Spacer(flex: 2),
+          Spacer(flex: 1),
           // if(Responsive.isLargeMobile(context)) MenuButton(),
           if (!Responsive.isLargeMobile(context)) NavigationButtonList(),
           Spacer(),
