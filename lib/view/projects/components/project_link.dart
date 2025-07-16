@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/state_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../model/project_model.dart';
+import '../../../view model/getx_controllers/portfolio_controller.dart';
 
-class ProjectLinks extends StatelessWidget {
+class ProjectLinks extends GetWidget<PortfolioController> {
   final int index;
   const ProjectLinks({super.key, required this.index});
   @override
@@ -20,7 +21,11 @@ class ProjectLinks extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                launchUrl(Uri.parse(projectList[index].link));
+                launchUrl(
+                  Uri.parse(
+                    controller.portfolioData.value!.projects![index].link ?? "",
+                  ),
+                );
               },
               icon: SvgPicture.asset('assets/icons/github.svg'),
             ),
@@ -29,7 +34,11 @@ class ProjectLinks extends StatelessWidget {
         const Spacer(),
         TextButton(
           onPressed: () {
-            launchUrl(Uri.parse(projectList[index].link));
+            launchUrl(
+              Uri.parse(
+                controller.portfolioData.value!.projects![index].link ?? "",
+              ),
+            );
           },
           child: const Text(
             'Read More>>',

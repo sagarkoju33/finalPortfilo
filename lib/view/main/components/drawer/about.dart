@@ -14,7 +14,7 @@ class About extends StatelessWidget {
         color: bgColor,
         child: Column(
           children: [
-            SizedBox(height: 4),
+            SizedBox(height: 10),
             const Spacer(flex: 2),
             const DrawerImage(),
             const Spacer(),
@@ -25,20 +25,20 @@ class About extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.w200, height: 1.5),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                "Reflects a strong commitment to combining creativity with technical precision, while actively contributing to the wider developer community.",
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w900,
-                  height: 0,
-                  wordSpacing: 2,
-                  fontSize: Responsive.isDesktop(context) ? 10 : 12,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(16.0),
+            //   child: Text(
+            //     "Reflects a strong commitment to combining creativity with technical precision, while actively contributing to the wider developer community.",
+            //     style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+            //       color: Colors.grey,
+            //       fontWeight: FontWeight.w900,
+            //       height: 0,
+            //       wordSpacing: 2,
+            //       fontSize: Responsive.isDesktop(context) ? 10 : 12,
+            //     ),
+            //     textAlign: TextAlign.center,
+            //   ),
+            // ),
             const Spacer(flex: 2),
           ],
         ),

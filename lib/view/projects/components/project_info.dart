@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:portfolio/view/projects/components/project_deatail.dart';
+import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
+import 'package:portfolio/view/projects/components/project_detail.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../model/project_model.dart';
 import '../../../res/constants.dart';
-import '../../../view model/getx_controllers/projects_controller.dart';
-import 'image_viewer.dart';
 
-class ProjectStack extends StatelessWidget {
-  final controller = Get.put(ProjectController());
-  ProjectStack({super.key, required this.index});
+class ProjectStack extends GetWidget<PortfolioController> {
+  const ProjectStack({super.key, required this.index});
   final int index;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onHover: (value) {
-        controller.onHover(index, value);
-      },
+      // onHover: (value) {
+      //   controller.onHover(index, value);
+      // },
       onTap: () {
-        launchUrl(Uri.parse(projectList[index].link));
+        launchUrl(
+          Uri.parse(
+            controller.portfolioData.value!.projects![index].link ?? "",
+          ),
+        );
         // ImageViewer(context, projectList[index].image);
       },
       borderRadius: BorderRadius.circular(30),
