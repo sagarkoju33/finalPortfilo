@@ -11,14 +11,12 @@ class TopNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
-        // crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.all(defaultPadding),
-            child: !Responsive.isLargeMobile(context)
-                ? Image.asset('assets/images/triange_icon.png')
-                : MenuButton(onTap: () => Scaffold.of(context).openDrawer()),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: MenuButton(onTap: () => Scaffold.of(context).openDrawer()),
           ),
           Spacer(flex: 1),
           // if(Responsive.isLargeMobile(context)) MenuButton(),
