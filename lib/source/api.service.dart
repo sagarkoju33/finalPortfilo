@@ -5,7 +5,7 @@ class ApiService {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl:
-          'https://api-portfolio-hu8b.onrender.com/api/portfolio', // Replace with your actual base URL
+          'https://kojusagar.com.np/api/portfolio', // Replace with your actual base URL
       connectTimeout: Duration(seconds: 10),
       receiveTimeout: Duration(seconds: 15),
     ),
