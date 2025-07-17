@@ -23,7 +23,7 @@ class Experience extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           Expanded(
             child: Responsive(
-              desktop: ExperienceGrid(crossAxisCount: 2, ratio: 4),
+              desktop: ExperienceGrid(crossAxisCount: 2, ratio: 2),
               extraLargeScreen: ExperienceGrid(crossAxisCount: 4, ratio: 1.6),
               largeMobile: ExperienceGrid(crossAxisCount: 1, ratio: 1.8),
               mobile: ExperienceGrid(crossAxisCount: 1, ratio: 1.4),

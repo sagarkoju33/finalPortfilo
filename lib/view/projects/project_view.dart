@@ -28,7 +28,13 @@ class ProjectsView extends StatelessWidget {
                 crossAxisCount: (size.width > 1600 && size.width < 1650
                     ? 3
                     : 4),
-                ratio: (size.width > 1600 && size.width < 1650 ? 1.8 : 1.6),
+                ratio: (size.width == 1920)
+                    ? 2
+                    : (size.width > 1400 && size.width < 1450)
+                    ? 1.5
+                    : (size.width > 1600 && size.width < 1650)
+                    ? 1.8
+                    : 1.6,
               ),
               largeMobile: ProjectGrid(crossAxisCount: 1, ratio: 2),
               mobile: ProjectGrid(crossAxisCount: 1, ratio: 1.5),

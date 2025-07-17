@@ -22,9 +22,11 @@ class TopNavigationBar extends StatelessWidget {
           ),
           Spacer(flex: 1),
           // if(Responsive.isLargeMobile(context)) MenuButton(),
-          if (!Responsive.isLargeMobile(context)) NavigationButtonList(),
-          Spacer(),
+          if ((!Responsive.isLargeMobile(context)) &&
+              !(Responsive.isTablet(context)))
+            NavigationButtonList(),
 
+          Spacer(),
           Padding(
             padding: const EdgeInsets.only(right: defaultPadding),
             child: const ConnectButton(),

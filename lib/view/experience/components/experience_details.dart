@@ -91,27 +91,30 @@ class ExperienceDetails extends GetWidget<PortfolioController> {
                       .value
                       ?.experience?[index]
                       .description?[responsibilitiesIndex];
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        CupertinoIcons.check_mark_circled_solid,
-                        color: Colors.green,
-                        size: 16,
-                      ),
-                      const SizedBox(width: defaultPadding / 2),
-                      Expanded(
-                        child: Text(
-                          e ?? "",
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            // overflow: TextOverflow.ellipsis,
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          CupertinoIcons.check_mark_circled_solid,
+                          color: Colors.green,
+                          size: 16,
+                        ),
+                        const SizedBox(width: defaultPadding / 2),
+                        Expanded(
+                          child: Text(
+                            e ?? "",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              // overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   );
                 },
               ),

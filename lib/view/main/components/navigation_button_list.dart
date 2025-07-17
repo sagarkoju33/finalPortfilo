@@ -29,7 +29,7 @@ class _NavigationButtonListState extends State<NavigationButtonList> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           scrollDirection: Axis.horizontal,
           itemCount: navigationButtons.length,
-          physics: const BouncingScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             final e = navigationButtons[index];
             return Padding(

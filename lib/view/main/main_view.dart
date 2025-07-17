@@ -23,7 +23,9 @@ class MainView extends StatelessWidget {
                 ? const SizedBox(height: defaultPadding * 2)
                 : const SizedBox(height: defaultPadding / 2),
             const SizedBox(height: 80, child: TopNavigationBar()),
-            if (Responsive.isLargeMobile(context)) NavigationButtonList(),
+            if ((Responsive.isLargeMobile(context)) ||
+                (Responsive.isTablet(context)))
+              NavigationButtonList(),
             // const Row(children: [Spacer(), , Spacer()]),
             Expanded(
               flex: 9,
