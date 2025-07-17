@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
 
 import '../../../../res/constants.dart';
 
@@ -24,7 +27,19 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Image.asset(image!, height: 15, width: 15, fit: BoxFit.cover),
+                  image!.endsWith(".svg")
+                      ? SvgPicture.network(
+                          image!,
+                          height: 15,
+                          width: 15,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.network(
+                          image!,
+                          height: 15,
+                          width: 15,
+                          fit: BoxFit.cover,
+                        ),
                   const SizedBox(width: 5),
                   Text(title, style: const TextStyle(color: Colors.white)),
                   const Spacer(),
@@ -45,63 +60,26 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
   }
 }
 
-class MySKills extends StatelessWidget {
+class MySKills extends GetWidget<PortfolioController> {
   const MySKills({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AnimatedLinearProgressIndicator(
-          percentage: 1,
-          title: 'Flutter',
-          image: 'assets/icons/flutter.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.9,
-          title: 'Dart',
-          image: 'assets/icons/dart.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.6,
-          title: 'Firebase',
-          image: 'assets/icons/firebase.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.85,
-          title: 'Sqlite',
-          image: 'assets/icons/dart.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.8,
-          title: 'Responsive Design',
-          image: 'assets/icons/flutter.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.9,
-          title: 'Clean Architecture',
-          image: 'assets/icons/flutter.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.5,
-          title: 'Bloc',
-          image: 'assets/icons/bloc.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.7,
-          title: 'Provider',
-          image: 'assets/icons/flutter.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.4,
-          title: 'Riverpod',
-          image: 'assets/icons/flutter.png',
-        ),
-        AnimatedLinearProgressIndicator(
-          percentage: 0.93,
-          title: 'Getx',
-          image: 'assets/icons/dart.png',
+        ListView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: controller.portfolioData.value?.about?.skills?.length ?? 0,
+          itemBuilder: (context, index) {
+            var data = controller.portfolioData.value?.about?.skills?[index];
+            return AnimatedLinearProgressIndicator(
+              percentage: double.parse(data?.level ?? ""),
+              title: data?.name ?? "",
+              image: data?.image ?? "",
+            );
+          },
         ),
       ],
     );

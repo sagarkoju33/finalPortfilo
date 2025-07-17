@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
 
 import '../../../../res/constants.dart';
 
-class DrawerImage extends StatelessWidget {
+class DrawerImage extends GetWidget<PortfolioController> {
   const DrawerImage({super.key});
 
   @override
@@ -12,26 +14,25 @@ class DrawerImage extends StatelessWidget {
       width: 100,
       padding: const EdgeInsets.all(defaultPadding / 6),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          gradient: LinearGradient(
-            colors: [
-              Colors.pink,
-              Colors.blue.shade900,
-            ],
-          ),
-          boxShadow: const [
-            BoxShadow(color: Colors.pink, blurRadius: 10, offset: Offset(0, 2)),
-            BoxShadow(
-                color: Colors.blue, blurRadius: 10, offset: Offset(0, -2)),
-          ]),
+        borderRadius: BorderRadius.circular(50),
+        gradient: LinearGradient(colors: [Colors.pink, Colors.blue.shade900]),
+        boxShadow: const [
+          BoxShadow(color: Colors.pink, blurRadius: 10, offset: Offset(0, 2)),
+          BoxShadow(color: Colors.blue, blurRadius: 10, offset: Offset(0, -2)),
+        ],
+      ),
       child: ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Transform.rotate(
-              angle: 0.1,
-              child: Image.asset(
-                'assets/images/profile.jpeg',
-                fit: BoxFit.cover,
-              ))),
+        borderRadius: BorderRadius.circular(50),
+        child: Obx(
+          () => Transform.rotate(
+            angle: 0.1,
+            child: Image.network(
+              controller.portfolioData.value?.about?.lottieUrl ?? "",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

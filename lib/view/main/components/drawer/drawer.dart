@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/view/main/components/drawer/personal_info.dart';
 import '../../../../res/constants.dart';
 import 'knowledges.dart';
@@ -11,10 +12,12 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: primaryColor,
+
       child: SingleChildScrollView(
         child: Column(
           children: [
             const About(),
+
             Container(
               color: bgColor,
               child: const Padding(
@@ -24,7 +27,7 @@ class CustomDrawer extends StatelessWidget {
                   children: [
                     PersonalInfo(),
                     MySKills(),
-                    Knowledges(),
+                    // Knowledges(),
                     Divider(),
                     SizedBox(height: defaultPadding),
                     // ContactIcon(),

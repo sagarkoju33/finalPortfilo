@@ -64,13 +64,23 @@ class PortfolioModel {
 class About {
   String? id;
   String? lottieUrl;
+  String? name;
+  String? contactNumber;
+  String? emailAddress;
+  String? linkedln;
+  String? githubAccount;
   String? description1;
   String? description2;
-  List<dynamic>? skills;
+  List<Skill>? skills;
 
   About({
     this.id,
     this.lottieUrl,
+    this.name,
+    this.contactNumber,
+    this.emailAddress,
+    this.linkedln,
+    this.githubAccount,
     this.description1,
     this.description2,
     this.skills,
@@ -79,19 +89,54 @@ class About {
   factory About.fromJson(Map<String, dynamic> json) => About(
     id: json["_id"],
     lottieUrl: json["lottieURL"],
+    name: json["name"],
+    contactNumber: json["contactNumber"],
+    emailAddress: json["emailAddress"],
+    linkedln: json["linkedln"],
+    githubAccount: json["githubAccount"],
     description1: json["description1"],
     description2: json["description2"],
     skills: json["skills"] == null
         ? []
-        : List<dynamic>.from(json["skills"]!.map((x) => x)),
+        : List<Skill>.from(json["skills"]!.map((x) => Skill.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
     "_id": id,
     "lottieURL": lottieUrl,
+    "name": name,
+    "contactNumber": contactNumber,
+    "emailAddress": emailAddress,
+    "linkedln": linkedln,
+    "githubAccount": githubAccount,
     "description1": description1,
     "description2": description2,
-    "skills": skills == null ? [] : List<dynamic>.from(skills!.map((x) => x)),
+    "skills": skills == null
+        ? []
+        : List<dynamic>.from(skills!.map((x) => x.toJson())),
+  };
+}
+
+class Skill {
+  String? id;
+  String? name;
+  String? level;
+  String? image;
+
+  Skill({this.id, this.name, this.level, this.image});
+
+  factory Skill.fromJson(Map<String, dynamic> json) => Skill(
+    id: json["_id"],
+    name: json["name"],
+    level: json["level"],
+    image: json["image"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "_id": id,
+    "name": name,
+    "level": level,
+    "image": image,
   };
 }
 
