@@ -16,6 +16,7 @@ class PortfolioModel {
   List<Project>? projects;
   List<Education>? education;
   Contact? contact;
+  List<ProfilePicture>? profilePicture;
 
   PortfolioModel({
     this.intro,
@@ -24,6 +25,7 @@ class PortfolioModel {
     this.projects,
     this.education,
     this.contact,
+    this.profilePicture,
   });
 
   factory PortfolioModel.fromJson(Map<String, dynamic> json) => PortfolioModel(
@@ -43,6 +45,11 @@ class PortfolioModel {
             json["education"]!.map((x) => Education.fromJson(x)),
           ),
     contact: json["contact"] == null ? null : Contact.fromJson(json["contact"]),
+    profilePicture: json["profilePicture"] == null
+        ? []
+        : List<ProfilePicture>.from(
+            json["profilePicture"]!.map((x) => ProfilePicture.fromJson(x)),
+          ),
   );
 
   Map<String, dynamic> toJson() => {
@@ -58,6 +65,9 @@ class PortfolioModel {
         ? []
         : List<dynamic>.from(education!.map((x) => x.toJson())),
     "contact": contact?.toJson(),
+    "profilePicture": profilePicture == null
+        ? []
+        : List<dynamic>.from(profilePicture!.map((x) => x.toJson())),
   };
 }
 
@@ -286,6 +296,22 @@ class Intro {
     "caption": caption,
     "description": description,
   };
+}
+
+class ProfilePicture {
+  String? id;
+  String? fileUrl;
+  int? v;
+
+  ProfilePicture({this.id, this.fileUrl, this.v});
+
+  factory ProfilePicture.fromJson(Map<String, dynamic> json) => ProfilePicture(
+    id: json["_id"],
+    fileUrl: json["file_url"],
+    v: json["__v"],
+  );
+
+  Map<String, dynamic> toJson() => {"_id": id, "file_url": fileUrl, "__v": v};
 }
 
 class Project {

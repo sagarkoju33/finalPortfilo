@@ -27,7 +27,8 @@ class DrawerImage extends GetWidget<PortfolioController> {
           () => Transform.rotate(
             angle: 0.1,
             child: Image.network(
-              controller.portfolioData.value?.about?.lottieUrl ?? "",
+              controller.portfolioData.value?.profilePicture?.first.fileUrl ??
+                  "",
               fit: BoxFit.cover,
             ),
           ),
