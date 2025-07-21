@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:portfolio/view/main/components/drawer/personal_info.dart';
 import '../../../../res/constants.dart';
-import 'knowledges.dart';
 import 'about.dart';
 import 'my_skill.dart';
 

@@ -16,7 +16,7 @@ class PortfolioModel {
   List<Project>? projects;
   List<Education>? education;
   Contact? contact;
-  List<ProfilePicture>? profilePicture;
+  ProfilePicture? profilePicture;
 
   PortfolioModel({
     this.intro,
@@ -46,10 +46,8 @@ class PortfolioModel {
           ),
     contact: json["contact"] == null ? null : Contact.fromJson(json["contact"]),
     profilePicture: json["profilePicture"] == null
-        ? []
-        : List<ProfilePicture>.from(
-            json["profilePicture"]!.map((x) => ProfilePicture.fromJson(x)),
-          ),
+        ? null
+        : ProfilePicture.fromJson(json["profilePicture"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -65,9 +63,7 @@ class PortfolioModel {
         ? []
         : List<dynamic>.from(education!.map((x) => x.toJson())),
     "contact": contact?.toJson(),
-    "profilePicture": profilePicture == null
-        ? []
-        : List<dynamic>.from(profilePicture!.map((x) => x.toJson())),
+    "profilePicture": profilePicture?.toJson(),
   };
 }
 

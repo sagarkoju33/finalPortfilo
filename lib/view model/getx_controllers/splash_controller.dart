@@ -1,10 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/core/routes.dart';
-import 'package:portfolio/view/home/home.dart';
 
 class SplashController extends GetxController {
   @override
