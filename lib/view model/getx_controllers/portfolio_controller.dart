@@ -31,23 +31,4 @@ class PortfolioController extends GetxController {
       isLoading.value = false;
     }
   }
-
-  RxList<bool> hovers = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ].obs;
-  onHover(int index, bool value) {
-    hovers[index] = value;
-  }
 }
