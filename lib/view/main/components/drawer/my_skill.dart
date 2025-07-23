@@ -68,19 +68,28 @@ class MySKills extends GetWidget<PortfolioController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: controller.portfolioData.value?.about?.skills?.length ?? 0,
-          itemBuilder: (context, index) {
-            var data = controller.portfolioData.value?.about?.skills?[index];
-            return AnimatedLinearProgressIndicator(
-              percentage: double.parse(data?.level ?? ""),
-              title: data?.name ?? "",
-              image: data?.image ?? "",
-            );
-          },
-        ),
+        (controller.portfolioData.value?.about?.skills?.isNotEmpty ?? false)
+            ? ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount:
+                    controller.portfolioData.value?.about?.skills?.length ?? 0,
+                itemBuilder: (context, index) {
+                  var data =
+                      controller.portfolioData.value?.about?.skills?[index];
+                  return AnimatedLinearProgressIndicator(
+                    percentage: double.parse(data?.level ?? ""),
+                    title: data?.name ?? "",
+                    image: data?.image ?? "",
+                  );
+                },
+              )
+            : Column(
+                children: [
+                  SizedBox(height: defaultPadding * 5),
+                  Center(child: Text("No Data found")),
+                ],
+              ),
       ],
     );
   }

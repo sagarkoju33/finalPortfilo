@@ -39,7 +39,7 @@ class PersonalInfo extends GetWidget<PortfolioController> {
           ),
         ),
         Divider(),
-        // SizedBox(height: defaultPadding),
+        SizedBox(height: defaultPadding),
         Text('Skills', style: TextStyle(color: Colors.white)),
         // SizedBox(height: defaultPadding),
       ],
