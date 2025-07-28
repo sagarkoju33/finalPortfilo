@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:portfolio/view%20model/getx_controllers/certification_controller.dart';
 import 'package:portfolio/view/experience/components/experience_grid.dart';

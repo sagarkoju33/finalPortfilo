@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
 import 'package:portfolio/res/constants.dart';
-import 'package:portfolio/view%20model/getx_controllers/projects_controller.dart';
 import 'package:portfolio/view%20model/responsive.dart';
 import 'package:portfolio/view/projects/components/title_text.dart';
 import 'components/projects_grid.dart';

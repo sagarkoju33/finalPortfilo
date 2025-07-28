@@ -3,8 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:portfolio/view/projects/components/project_link.dart';
-
-import '../../../model/project_model.dart';
 import '../../../res/constants.dart';
 import '../../../view model/getx_controllers/portfolio_controller.dart';
 import '../../../view model/responsive.dart';

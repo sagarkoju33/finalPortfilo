@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
 import 'package:portfolio/view/projects/components/project_detail.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../model/project_model.dart';
 import '../../../res/constants.dart';
 
 class ProjectStack extends GetWidget<PortfolioController> {
