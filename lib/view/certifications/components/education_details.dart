@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/model/education_model.dart';
@@ -49,10 +50,10 @@ class CertificateStack extends GetWidget<PortfolioController> {
 
               const SizedBox(height: defaultPadding / 2),
               Text.rich(
-                maxLines: 2,
+                maxLines: kIsWeb ? 4 : 2,
                 TextSpan(
                   text: 'Description : ',
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
+                  style: const TextStyle(color: Colors.white, fontSize: 10),
                   children: [
                     TextSpan(
                       text:

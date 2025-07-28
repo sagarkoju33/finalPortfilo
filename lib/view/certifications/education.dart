@@ -21,7 +21,7 @@ class _EducationState extends State<Education> {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          double width = constraints.maxWidth;
+         
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,

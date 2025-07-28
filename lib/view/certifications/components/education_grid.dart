@@ -20,7 +20,7 @@ class CertificateGrid extends GetWidget<PortfolioController> {
     log("rendering project detail for index: $width");
     if (width >= 1500) {
       crossAxisCount = 4;
-      ratio = 1.6;
+      ratio = 2;
     } else if (width >= 1400) {
       crossAxisCount = 3;
       ratio = 2.2;
