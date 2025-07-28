@@ -14,26 +14,41 @@ class CustomDrawer extends GetWidget<PortfolioController> {
       backgroundColor: bgColor,
 
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const About(),
-            Container(
-              color: bgColor,
-              child: Padding(
-                padding: EdgeInsets.all(defaultPadding / 2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    PersonalInfo(),
-                    MySKills(),
+        child:
+            (controller.portfolioData.value?.about?.name?.isNotEmpty ?? false)
+            ? Column(
+                children: [
+                  const About(),
+                  Container(
+                    color: bgColor,
+                    child: Padding(
+                      padding: EdgeInsets.all(defaultPadding / 2),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          PersonalInfo(),
+                          MySKills(),
 
-                    // ContactIcon(),
+                          // ContactIcon(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : Container(
+                height: MediaQuery.of(context).size.height,
+                alignment: Alignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CircularProgressIndicator(),
+                    SizedBox(height: 20),
+                    Text("Please refresh the data"),
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

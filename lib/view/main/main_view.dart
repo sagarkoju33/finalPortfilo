@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 import 'package:portfolio/res/constants.dart';
 import 'package:portfolio/view%20model/controller.dart';
+import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
 import 'package:portfolio/view/main/components/navigation_bar.dart';
 
 import '../../view model/responsive.dart';
@@ -8,7 +10,7 @@ import 'components/drawer/drawer.dart';
 import 'components/navigation_button_list.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class MainView extends StatelessWidget {
+class MainView extends GetWidget<PortfolioController> {
   const MainView({super.key, required this.pages});
   final List<Widget> pages;
   @override
