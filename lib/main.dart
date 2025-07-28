@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/routes.dart';
 import 'package:portfolio/res/constants.dart';
+import 'package:portfolio/view%20model/getx_controllers/screen_size_controller.dart';
 import 'package:portfolio/view/splash/splash_view.dart';
 
 import 'source/api.service.dart';
 
 void main() async {
+   
   // WidgetsFlutterBinding.ensureInitialized();
   await initServices();
   // await Firebase.initializeApp(
