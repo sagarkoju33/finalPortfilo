@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/res/constants.dart';
 import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
 import 'package:portfolio/view/projects/components/title_text.dart';
 
@@ -70,7 +71,7 @@ class _ContactUsFormState extends State<ContactUsForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // You can change it if needed
+      backgroundColor: bgColor,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(

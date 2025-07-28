@@ -27,7 +27,7 @@ class Education extends StatelessWidget {
               extraLargeScreen: CertificateGrid(crossAxisCount: 4, ratio: 2.2),
               largeMobile: CertificateGrid(crossAxisCount: 1),
               mobile: CertificateGrid(crossAxisCount: 1, ratio: 1.5),
-              tablet: CertificateGrid(crossAxisCount: 1, ratio: 2),
+              tablet: CertificateGrid(crossAxisCount: 2, ratio: 1.4),
             ),
           ),
         ],
