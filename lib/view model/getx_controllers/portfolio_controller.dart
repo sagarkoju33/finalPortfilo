@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:portfolio/domain/portfolio.dart';
+import 'package:portfolio/helper/dialog_helper.dart';
+import 'package:portfolio/model/portfolio.dart';
 import 'package:portfolio/source/api.service.dart';
 
 class PortfolioController extends GetxController {
@@ -29,6 +30,28 @@ class PortfolioController extends GetxController {
       print('Error fetching data: $e');
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  Future<bool> submitFeedbackForm({
+    required String name,
+    required String contactNumber,
+    required String email,
+    required String feedback,
+  }) async {
+    try {
+      AlertHelper.waitWidget();
+      final result = await _apiService.sendFeedback(
+        name: name,
+        contactNumber: contactNumber,
+        email: email,
+        feedback: feedback,
+      );
+      AlertHelper.closeWaitWidget();
+      return result;
+    } catch (e) {
+      log("Feedback submission failed: $e");
+      rethrow; // Let the UI handle the exception
     }
   }
 }

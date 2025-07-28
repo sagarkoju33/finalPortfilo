@@ -1,35 +1,30 @@
 import 'package:flutter/material.dart';
-
 import 'package:portfolio/view model/controller.dart';
 
-class NavigationButtonList extends StatefulWidget {
+class NavigationButtonList extends StatelessWidget {
   const NavigationButtonList({super.key});
 
   @override
-  State<NavigationButtonList> createState() => _NavigationButtonListState();
-}
-
-class _NavigationButtonListState extends State<NavigationButtonList> {
-  List<String> navigationButtons = [
-    "Home",
-    // "About Us",
-    "Experience",
-    "Projects",
-    "Education",
-  ];
-
-  @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SizedBox(
-        height: 60,
-        width: double.infinity,
+    final List<String> navigationButtons = [
+      "Home",
+      // "About Us",
+      "Experience",
+      "Projects",
+      "Education",
+      "Contact Us",
+    ];
 
+    return Container(
+      color: Colors.transparent,
+      child: SizedBox(
+        height: 40,
         child: ListView.builder(
+          shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 10),
           scrollDirection: Axis.horizontal,
           itemCount: navigationButtons.length,
-          physics: const AlwaysScrollableScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             final e = navigationButtons[index];
             return Padding(
@@ -42,7 +37,13 @@ class _NavigationButtonListState extends State<NavigationButtonList> {
                     curve: Curves.easeIn,
                   );
                 },
-                child: Center(
+                child: Container(
+                  // padding: const EdgeInsets.symmetric(horizontal: 12),
+                  // decoration: BoxDecoration(
+                  //   color: Colors.red,
+                  //   borderRadius: BorderRadius.circular(8),
+                  // ),
+                  alignment: Alignment.center,
                   child: Text(
                     e,
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/view/contact_us.dart';
 import 'package:portfolio/view/intro/introduction.dart';
 import 'package:portfolio/view/main/main_view.dart';
 import 'package:portfolio/view/projects/project_view.dart';
@@ -18,6 +19,7 @@ class HomePage extends StatelessWidget {
         Experience(),
         ProjectsView(),
         Education(),
+        ContactUsForm(),
         // Certifications(),
       ],
     );

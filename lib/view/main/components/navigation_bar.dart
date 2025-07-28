@@ -11,20 +11,17 @@ class TopNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: MenuButton(onTap: () => Scaffold.of(context).openDrawer()),
           ),
-          Spacer(flex: 1),
-          // if(Responsive.isLargeMobile(context)) MenuButton(),
+          const Spacer(),
           if ((!Responsive.isLargeMobile(context)) &&
               !(Responsive.isTablet(context)))
             NavigationButtonList(),
-
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.only(right: defaultPadding),
             child: const ConnectButton(),
