@@ -32,7 +32,7 @@ class CertificateGrid extends GetWidget<PortfolioController> {
       ratio = 1.4;
     } else {
       crossAxisCount = 1;
-      ratio = 2;
+      ratio = 1.6;
     }
 
     return educationList.isNotEmpty
