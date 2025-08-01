@@ -7,7 +7,7 @@ class ApiService {
     BaseOptions(
       baseUrl:
           'https://kojusagar.com.np/api/portfolio', // Replace with your actual base URL
-      connectTimeout: Duration(seconds: 10),
+      connectTimeout: Duration(seconds: 3000),
       receiveTimeout: Duration(seconds: 15),
     ),
   );
