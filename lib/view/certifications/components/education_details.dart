@@ -65,6 +65,7 @@ class CertificateStack extends GetWidget<PortfolioController> {
                           "",
                       style: const TextStyle(
                         color: Colors.grey,
+                        fontSize: 10,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

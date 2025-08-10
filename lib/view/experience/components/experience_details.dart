@@ -100,7 +100,7 @@ class ExperienceDetails extends GetWidget<PortfolioController> {
                         const Icon(
                           CupertinoIcons.check_mark_circled_solid,
                           color: Colors.green,
-                          size: 16,
+                          size: 12,
                         ),
                         const SizedBox(width: defaultPadding / 2),
                         Expanded(
@@ -108,7 +108,7 @@ class ExperienceDetails extends GetWidget<PortfolioController> {
                             e ?? "",
                             style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 10,
                               // overflow: TextOverflow.ellipsis,
                             ),
                           ),

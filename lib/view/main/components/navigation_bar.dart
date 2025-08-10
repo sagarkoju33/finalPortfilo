@@ -13,6 +13,7 @@ class TopNavigationBar extends StatelessWidget {
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: MenuButton(onTap: () => Scaffold.of(context).openDrawer()),

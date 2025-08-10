@@ -32,7 +32,7 @@ class CertificateGrid extends GetWidget<PortfolioController> {
       ratio = 1.4;
     } else {
       crossAxisCount = 1;
-      ratio = 1.6;
+      ratio = 1.5;
     }
 
     return educationList.isNotEmpty
@@ -62,12 +62,20 @@ class CertificateGrid extends GetWidget<PortfolioController> {
                         BoxShadow(
                           color: Colors.pink,
                           offset: const Offset(-2, 0),
-                          blurRadius: 20,
+                          blurRadius:
+                              (index < controller.hovers.length &&
+                                  controller.hovers[index])
+                              ? 20
+                              : 10,
                         ),
                         BoxShadow(
                           color: Colors.blue,
                           offset: const Offset(2, 0),
-                          blurRadius: 20,
+                          blurRadius:
+                              (index < controller.hovers.length &&
+                                  controller.hovers[index])
+                              ? 20
+                              : 10,
                         ),
                       ],
                     ),

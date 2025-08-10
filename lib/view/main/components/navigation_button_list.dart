@@ -13,6 +13,7 @@ class NavigationButtonList extends StatelessWidget {
       "Projects",
       "Education",
       "Contact Us",
+      "Blog",
     ];
 
     return Container(

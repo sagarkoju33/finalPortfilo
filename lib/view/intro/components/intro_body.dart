@@ -26,7 +26,7 @@ class IntroBody extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyPortfolioText(start: 40, end: 50),
+                      MyPortfolioText(start: 20, end: 40),
                       SizedBox(height: defaultPadding / 2),
                       CombineSubtitleText(),
                       SizedBox(height: defaultPadding / 2),

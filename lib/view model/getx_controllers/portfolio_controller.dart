@@ -25,15 +25,13 @@ class PortfolioController extends GetxController {
     loadPortfolioData();
   }
 
-  void loadPortfolioData() async {
+  Future<void> loadPortfolioData() async {
+    // <- make return type explicit
     isLoading.value = true;
-
-    // Track if the dialog was shown
     bool dialogShown = false;
 
-    // Start a delayed task to show loading dialog only if API takes > 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
-      if (isLoading.value) {
+      if (isLoading.value && !(Get.isDialogOpen ?? false)) {
         showLoadingDialog();
         dialogShown = true;
       }
@@ -100,16 +98,16 @@ class PortfolioController extends GetxController {
                     if (kIsWeb) {
                       reloadPage();
                     } else {
-                      // Show dialog first if data is not yet loaded or still loading
+                      // If no data yet, show loading dialog
                       if (portfolioData.value?.intro?.firstName?.isEmpty ??
                           true) {
                         showLoadingDialog();
                       }
 
-                      // Load data
-                      loadPortfolioData();
+                      // Load the data and wait for it to finish
+                      await loadPortfolioData();
 
-                      // Close the dialog after loading
+                      // Close dialog if it's still open
                       if (Get.isDialogOpen ?? false) {
                         Get.back();
                       }
@@ -123,5 +121,10 @@ class PortfolioController extends GetxController {
         ),
       );
     }
+  }
+
+RxList<bool> hovers = <bool>[].obs;
+  onHover(int index, bool value) {
+    hovers[index] = value;
   }
 }

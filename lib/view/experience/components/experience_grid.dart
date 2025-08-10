@@ -40,12 +40,20 @@ class ExperienceGrid extends GetWidget<PortfolioController> {
                     BoxShadow(
                       color: Colors.pink,
                       offset: const Offset(-2, 0),
-                      blurRadius: 20,
+                      blurRadius:
+                          (index < controller.hovers.length &&
+                              controller.hovers[index])
+                          ? 20
+                          : 10,
                     ),
                     BoxShadow(
                       color: Colors.blue,
                       offset: const Offset(2, 0),
-                      blurRadius: 20,
+                      blurRadius:
+                          (index < controller.hovers.length &&
+                              controller.hovers[index])
+                          ? 20
+                          : 10,
                     ),
                   ],
                 ),

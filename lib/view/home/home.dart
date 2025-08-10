@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
+import 'package:portfolio/view/Blog/blog_screen.dart';
 import 'package:portfolio/view/contact_us.dart';
 import 'package:portfolio/view/intro/introduction.dart';
 import 'package:portfolio/view/main/main_view.dart';
@@ -21,6 +22,7 @@ class HomePage extends GetWidget<PortfolioController> {
         ProjectsView(),
         Education(),
         const ContactUsForm(),
+        BlogScreen(), // Assuming you have a BlogPage widget
       ],
     );
   }
