@@ -221,8 +221,8 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                     gradient: false,
                   ),
                   mobile: AnimatedSubtitleText(
-                    start: 25,
-                    end: 32,
+                    start: 20,
+                    end: 34,
                     text: ' Developer ',
                     gradient: true,
                   ),

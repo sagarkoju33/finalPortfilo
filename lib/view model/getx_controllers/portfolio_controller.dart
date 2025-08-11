@@ -10,6 +10,7 @@ import 'package:portfolio/res/constants.dart';
 import 'package:portfolio/source/api.service.dart';
 
 import '../../utils/web_reload_web.dart';
+import 'dart:async'; // Add this
 
 class PortfolioController extends GetxController {
   var portfolioData =
@@ -26,11 +27,12 @@ class PortfolioController extends GetxController {
   }
 
   Future<void> loadPortfolioData() async {
-    // <- make return type explicit
     isLoading.value = true;
     bool dialogShown = false;
 
-    Future.delayed(const Duration(seconds: 3), () {
+    Timer? dialogTimer;
+
+    dialogTimer = Timer(const Duration(seconds: 3), () {
       if (isLoading.value && !(Get.isDialogOpen ?? false)) {
         showLoadingDialog();
         dialogShown = true;
@@ -44,10 +46,15 @@ class PortfolioController extends GetxController {
           throw Exception("Connection timed out");
         },
       );
+
       portfolioData.value = result;
       log("Portfolio data fetched successfully===========>${result.toJson()}");
     } finally {
       isLoading.value = false;
+
+      // Cancel the delayed dialog if data loaded early
+      dialogTimer.cancel();
+
       if (dialogShown && (Get.isDialogOpen ?? false)) {
         Get.back();
       }
@@ -102,6 +109,7 @@ class PortfolioController extends GetxController {
                       if (portfolioData.value?.intro?.firstName?.isEmpty ??
                           true) {
                         showLoadingDialog();
+                        // Get.back();
                       }
 
                       // Load the data and wait for it to finish
