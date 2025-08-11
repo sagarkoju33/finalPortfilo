@@ -20,7 +20,7 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
         Obx(
           () => Responsive(
             desktop:
-                (controller.portfolioData.value?.about?.skills?.isNotEmpty ??
+                (controller.portfolioData.value?.stackPositions?.isNotEmpty ??
                     false)
                 ? AnimatedTextKit(
                     repeatForever: true,
@@ -29,15 +29,14 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                         ((controller
                                 .portfolioData
                                 .value
-                                ?.about
-                                ?.skills
+                                ?.stackPositions
                                 ?.isNotEmpty ??
                             false)
-                        ? controller.portfolioData.value!.about!.skills!.map((
+                        ? controller.portfolioData.value!.stackPositions!.map((
                             e,
                           ) {
                             return TyperAnimatedText(
-                              e.name ?? "",
+                              e.title ?? "",
                               textStyle: const TextStyle(
                                 fontSize: 34,
                                 fontWeight: FontWeight.bold,
@@ -59,7 +58,7 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                 : CircularProgressIndicator(),
 
             largeMobile:
-                (controller.portfolioData.value?.about?.skills?.isNotEmpty ??
+                (controller.portfolioData.value?.stackPositions?.isNotEmpty ??
                     false)
                 ? AnimatedTextKit(
                     repeatForever: true,
@@ -68,15 +67,14 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                         ((controller
                                 .portfolioData
                                 .value
-                                ?.about
-                                ?.skills
+                                ?.stackPositions
                                 ?.isNotEmpty ??
                             false)
-                        ? controller.portfolioData.value!.about!.skills!.map((
+                        ? controller.portfolioData.value!.stackPositions!.map((
                             e,
                           ) {
                             return TyperAnimatedText(
-                              e.name ?? "",
+                              e.title ?? "",
                               textStyle: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
@@ -97,7 +95,7 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                   )
                 : CircularProgressIndicator(),
             mobile:
-                (controller.portfolioData.value?.about?.skills?.isNotEmpty ??
+                (controller.portfolioData.value?.stackPositions?.isNotEmpty ??
                     false)
                 ? AnimatedTextKit(
                     repeatForever: true,
@@ -106,15 +104,14 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                         ((controller
                                 .portfolioData
                                 .value
-                                ?.about
-                                ?.skills
+                                ?.stackPositions
                                 ?.isNotEmpty ??
                             false)
-                        ? controller.portfolioData.value!.about!.skills!.map((
+                        ? controller.portfolioData.value!.stackPositions!.map((
                             e,
                           ) {
                             return TyperAnimatedText(
-                              e.name ?? "",
+                              e.title ?? "",
                               textStyle: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
@@ -135,7 +132,7 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                   )
                 : CircularProgressIndicator(),
             tablet:
-                (controller.portfolioData.value?.about?.skills?.isNotEmpty ??
+                (controller.portfolioData.value?.stackPositions?.isNotEmpty ??
                     false)
                 ? AnimatedTextKit(
                     repeatForever: true,
@@ -144,15 +141,14 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                         ((controller
                                 .portfolioData
                                 .value
-                                ?.about
-                                ?.skills
+                                ?.stackPositions
                                 ?.isNotEmpty ??
                             false)
-                        ? controller.portfolioData.value!.about!.skills!.map((
+                        ? controller.portfolioData.value!.stackPositions!.map((
                             e,
                           ) {
                             return TyperAnimatedText(
-                              e.name ?? "",
+                              e.title ?? "",
                               textStyle: const TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
