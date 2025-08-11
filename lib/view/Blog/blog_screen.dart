@@ -114,7 +114,7 @@ class BlogScreen extends GetWidget<PortfolioController> {
                                 style: Theme.of(context).textTheme.titleSmall!
                                     .copyWith(
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w200,
                                       fontSize: 12,
                                       overflow: TextOverflow.ellipsis,
                                     ),

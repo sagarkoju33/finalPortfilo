@@ -50,7 +50,7 @@ class CertificateStack extends GetWidget<PortfolioController> {
 
               const SizedBox(height: defaultPadding / 2),
               Text.rich(
-                maxLines: kIsWeb ? 4 : 2,
+                maxLines: kIsWeb ? 3 : 2,
                 TextSpan(
                   text: 'Description : ',
                   style: const TextStyle(color: Colors.white, fontSize: 10),
@@ -65,7 +65,7 @@ class CertificateStack extends GetWidget<PortfolioController> {
                           "",
                       style: const TextStyle(
                         color: Colors.grey,
-                        fontSize: 10,
+                        fontSize: 12,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

@@ -27,7 +27,7 @@ class ProjectsView extends StatelessWidget {
                     ? 3
                     : 4),
                 ratio: (size.width == 1920)
-                    ? 2
+                    ? 2.4
                     : (size.width > 1400 && size.width < 1450)
                     ? 1.5
                     : (size.width > 1600 && size.width < 1650)

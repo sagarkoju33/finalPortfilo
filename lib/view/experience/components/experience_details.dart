@@ -108,7 +108,7 @@ class ExperienceDetails extends GetWidget<PortfolioController> {
                             e ?? "",
                             style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 10,
+                              fontSize: 12,
                               // overflow: TextOverflow.ellipsis,
                             ),
                           ),

@@ -39,7 +39,7 @@ class ProjectDetail extends GetWidget<PortfolioController> {
         Obx(
           () => Text(
             controller.portfolioData.value!.projects![index].description ?? "",
-            style: const TextStyle(color: Colors.grey, fontSize: 10),
+            style: const TextStyle(color: Colors.grey, fontSize: 12),
             maxLines: size.width > 700 && size.width < 750
                 ? 2
                 : size.width < 470
@@ -48,7 +48,7 @@ class ProjectDetail extends GetWidget<PortfolioController> {
                 ? 6
                 : size.width > 900 && size.width < 1060
                 ? 6
-                : 4,
+                : 3,
             overflow: TextOverflow.ellipsis,
           ),
         ),
