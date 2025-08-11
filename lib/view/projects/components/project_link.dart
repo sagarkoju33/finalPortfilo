@@ -12,26 +12,30 @@ class ProjectLinks extends GetWidget<PortfolioController> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Row(
-          children: [
-            const Text(
-              'Check on Github',
-              style: TextStyle(color: Colors.white, fontSize: 12),
-              overflow: TextOverflow.ellipsis,
-            ),
-            IconButton(
-              onPressed: () {
-                launchUrl(
-                  Uri.parse(
-                    controller.portfolioData.value!.projects![index].link ?? "",
-                  ),
-                );
-              },
-              icon: SvgPicture.asset('assets/icons/github.svg'),
-            ),
-          ],
+        Expanded(
+          child: Row(
+            children: [
+              const Flexible(
+                child: Text(
+                  'Check on Github',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  launchUrl(
+                    Uri.parse(
+                      controller.portfolioData.value!.projects![index].link ??
+                          "",
+                    ),
+                  );
+                },
+                icon: SvgPicture.asset('assets/icons/github.svg'),
+              ),
+            ],
+          ),
         ),
-        const Spacer(),
         TextButton(
           onPressed: () {
             launchUrl(

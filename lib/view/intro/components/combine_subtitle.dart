@@ -174,66 +174,72 @@ class CombineSubtitleText extends GetWidget<PortfolioController> {
                 : CircularProgressIndicator(),
           ),
         ),
-        (kIsWeb && Responsive.isLargeMobile(context)
-            ? const Responsive(
-                desktop: AnimatedSubtitleText(
-                  start: 30,
-                  end: 40,
-                  text: ' Developer ',
-                  gradient: true,
-                ),
-                largeMobile: AnimatedSubtitleText(
-                  start: 30,
-                  end: 25,
-                  text: ' Developer ',
-                  gradient: true,
-                ),
-                mobile: AnimatedSubtitleText(
-                  start: 25,
-                  end: 20,
-                  text: ' Developer ',
-                  gradient: true,
-                ),
-                tablet: AnimatedSubtitleText(
-                  start: 40,
-                  end: 30,
-                  text: ' Developer ',
-                  gradient: true,
-                ),
-              )
-            : ShaderMask(
-                shaderCallback: (bounds) {
-                  return const LinearGradient(
-                    colors: [Colors.pink, Colors.blue],
-                  ).createShader(bounds);
-                },
-                child: const Responsive(
-                  desktop: AnimatedSubtitleText(
-                    start: 30,
-                    end: 34,
-                    text: ' Developer ',
-                    gradient: false,
-                  ),
-                  largeMobile: AnimatedSubtitleText(
-                    start: 30,
-                    end: 25,
-                    text: ' Developer ',
-                    gradient: false,
-                  ),
-                  mobile: AnimatedSubtitleText(
-                    start: 20,
-                    end: 34,
-                    text: ' Developer ',
-                    gradient: true,
-                  ),
-                  tablet: AnimatedSubtitleText(
-                    start: 20,
-                    end: 34,
-                    text: ' Developer ',
-                    gradient: false,
-                  ),
-                ),
-              )),
+        AnimatedSubtitleText(
+          start: 20,
+          end: 32,
+          text: ' Developer ',
+          gradient: true,
+        ),
+        // (kIsWeb && Responsive.isLargeMobile(context)
+        //     ? const Responsive(
+        //         desktop: AnimatedSubtitleText(
+        //           start: 20,
+        //           end: 34,
+        //           text: ' Developer ',
+        //           gradient: true,
+        //         ),
+        //         largeMobile: AnimatedSubtitleText(
+        //           start: 20,
+        //           end: 34,
+        //           text: ' Developer ',
+        //           gradient: true,
+        //         ),
+        //         mobile: AnimatedSubtitleText(
+        //           start: 20,
+        //           end: 34,
+        //           text: ' Developer ',
+        //           gradient: true,
+        //         ),
+        //         tablet: AnimatedSubtitleText(
+        //           start: 20,
+        //           end: 34,
+        //           text: ' Developer ',
+        //           gradient: true,
+        //         ),
+        //       )
+        //     : ShaderMask(
+        //         shaderCallback: (bounds) {
+        //           return const LinearGradient(
+        //             colors: [Colors.pink, Colors.blue],
+        //           ).createShader(bounds);
+        //         },
+        //         child: const Responsive(
+        //           desktop: AnimatedSubtitleText(
+        //             start: 30,
+        //             end: 34,
+        //             text: ' Developer ',
+        //             gradient: false,
+        //           ),
+        //           largeMobile: AnimatedSubtitleText(
+        //             start: 20,
+        //             end: 34,
+        //             text: ' Developer ',
+        //             gradient: false,
+        //           ),
+        //           mobile: AnimatedSubtitleText(
+        //             start: 20,
+        //             end: 34,
+        //             text: ' Developer ',
+        //             gradient: true,
+        //           ),
+        //           tablet: AnimatedSubtitleText(
+        //             start: 20,
+        //             end: 34,
+        //             text: ' Developer ',
+        //             gradient: false,
+        //           ),
+        //         ),
+        //       )),
       ],
     );
   }

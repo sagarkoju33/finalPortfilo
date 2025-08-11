@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/view%20model/getx_controllers/portfolio_controller.dart';
+import 'package:portfolio/view%20model/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../res/constants.dart';
 
@@ -104,10 +105,10 @@ class BlogScreen extends GetWidget<PortfolioController> {
                                     fontSize: 20,
                                   ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 10),
                             Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0,
+                                horizontal: 12.0,
                               ),
                               child: Text(
                                 blogList[index].description ?? '',
@@ -118,7 +119,9 @@ class BlogScreen extends GetWidget<PortfolioController> {
                                       fontSize: 12,
                                       overflow: TextOverflow.ellipsis,
                                     ),
-                                maxLines: kIsWeb
+                                maxLines:
+                                    kIsWeb &&
+                                        Responsive.isExtraLargeScreen(context)
                                     ? 8
                                     : GetPlatform.isIOS
                                     ? 5
