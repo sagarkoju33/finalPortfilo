@@ -123,7 +123,7 @@ class PortfolioController extends GetxController {
     }
   }
 
-RxList<bool> hovers = <bool>[].obs;
+  RxList<bool> hovers = <bool>[].obs;
   onHover(int index, bool value) {
     hovers[index] = value;
   }
