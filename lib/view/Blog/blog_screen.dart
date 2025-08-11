@@ -118,7 +118,7 @@ class BlogScreen extends GetWidget<PortfolioController> {
                                       fontSize: 12,
                                       overflow: TextOverflow.ellipsis,
                                     ),
-                                maxLines: kIsWeb ? 8 : 4,
+                                maxLines: kIsWeb ? 8 : 5,
                               ),
                             ),
 
