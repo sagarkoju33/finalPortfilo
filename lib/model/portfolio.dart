@@ -17,6 +17,7 @@ class PortfolioModel {
   List<Education>? education;
   Contact? contact;
   ProfilePicture? profilePicture;
+  List<Blog>? blogs;
 
   PortfolioModel({
     this.intro,
@@ -26,6 +27,7 @@ class PortfolioModel {
     this.education,
     this.contact,
     this.profilePicture,
+    this.blogs,
   });
 
   factory PortfolioModel.fromJson(Map<String, dynamic> json) => PortfolioModel(
@@ -48,6 +50,9 @@ class PortfolioModel {
     profilePicture: json["profilePicture"] == null
         ? null
         : ProfilePicture.fromJson(json["profilePicture"]),
+    blogs: json["blogs"] == null
+        ? []
+        : List<Blog>.from(json["blogs"]!.map((x) => Blog.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -64,6 +69,9 @@ class PortfolioModel {
         : List<dynamic>.from(education!.map((x) => x.toJson())),
     "contact": contact?.toJson(),
     "profilePicture": profilePicture?.toJson(),
+    "blogs": blogs == null
+        ? []
+        : List<dynamic>.from(blogs!.map((x) => x.toJson())),
   };
 }
 
@@ -124,25 +132,67 @@ class About {
 }
 
 class Skill {
-  String? id;
   String? name;
   String? level;
   String? image;
+  String? id;
 
-  Skill({this.id, this.name, this.level, this.image});
+  Skill({this.name, this.level, this.image, this.id});
 
   factory Skill.fromJson(Map<String, dynamic> json) => Skill(
-    id: json["_id"],
     name: json["name"],
     level: json["level"],
     image: json["image"],
+    id: json["_id"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "name": name,
+    "level": level,
+    "image": image,
+    "_id": id,
+  };
+}
+
+class Blog {
+  String? id;
+  String? title;
+  String? description;
+  String? imageUrl;
+  DateTime? datetime;
+  String? link;
+  int? v;
+
+  Blog({
+    this.id,
+    this.title,
+    this.description,
+    this.imageUrl,
+    this.datetime,
+    this.link,
+    this.v,
+  });
+
+  factory Blog.fromJson(Map<String, dynamic> json) => Blog(
+    id: json["_id"],
+    title: json["title"],
+    description: json["description"],
+    imageUrl: json["imageUrl"],
+    datetime: json["datetime"] == null
+        ? null
+        : DateTime.parse(json["datetime"]),
+    link: json["link"],
+    v: json["__v"],
   );
 
   Map<String, dynamic> toJson() => {
     "_id": id,
-    "name": name,
-    "level": level,
-    "image": image,
+    "title": title,
+    "description": description,
+    "imageUrl": imageUrl,
+    "datetime": datetime?.toIso8601String(),
+    "link": link,
+    "__v": v,
   };
 }
 
@@ -317,6 +367,7 @@ class Project {
   String? image;
   String? link;
   List<String>? technologies;
+  int? v;
 
   Project({
     this.id,
@@ -325,6 +376,7 @@ class Project {
     this.image,
     this.link,
     this.technologies,
+    this.v,
   });
 
   factory Project.fromJson(Map<String, dynamic> json) => Project(
@@ -336,6 +388,7 @@ class Project {
     technologies: json["technologies"] == null
         ? []
         : List<String>.from(json["technologies"]!.map((x) => x)),
+    v: json["__v"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -347,5 +400,6 @@ class Project {
     "technologies": technologies == null
         ? []
         : List<dynamic>.from(technologies!.map((x) => x)),
+    "__v": v,
   };
 }
