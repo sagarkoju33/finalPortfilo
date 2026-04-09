@@ -33,12 +33,12 @@ class PortfolioController extends GetxController {
     Timer? dialogTimer;
 
     // Show dialog after 3 seconds (only if still loading)
-    dialogTimer = Timer(const Duration(seconds: 3), () {
-      if (isLoading.value && !(Get.isDialogOpen ?? false)) {
-        showLoadingDialog();
-        dialogShown = true;
-      }
-    });
+    // dialogTimer = Timer(const Duration(seconds: 3), () {
+    //   if (isLoading.value && !(Get.isDialogOpen ?? false)) {
+    //     showLoadingDialog();
+    //     dialogShown = true;
+    //   }
+    // });
 
     try {
       final result = await Future.any([
@@ -63,11 +63,11 @@ class PortfolioController extends GetxController {
     } finally {
       isLoading.value = false;
 
-      dialogTimer.cancel();
+      // dialogTimer.cancel();
 
-      if (dialogShown && (Get.isDialogOpen ?? false)) {
-        Get.back();
-      }
+      // if (dialogShown && (Get.isDialogOpen ?? false)) {
+      //   Get.back();
+      // }
     }
   }
 
